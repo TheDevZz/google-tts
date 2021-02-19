@@ -59,7 +59,8 @@ export const getAudioBase64 = async (
   // 1. parse audio base64 string
   let result;
   try {
-    result = eval(res.data.slice(5))[0][2];
+    // result = eval(res.data.slice(5))[0][2];
+    result = JSON.parse(res.data.slice(5))[0][2];
   } catch (e) {
     throw new Error(`parse response failed:\n${res.data}`);
   }
@@ -71,7 +72,8 @@ export const getAudioBase64 = async (
 
   // 2. continue to parse audio base64 string
   try {
-    result = eval(result)[0];
+    // result = eval(result)[0];
+    result = JSON.parse(result)[0];
   } catch (e) {
     throw new Error(`parse response failed:\n${res.data}`);
   }
